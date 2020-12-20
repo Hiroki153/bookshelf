@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Qfl-oA-lPJ">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -7,37 +7,85 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="bookshelf" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="139" y="127"/>
-        </scene>
         <!--Login View Controller-->
         <scene sceneID="glI-nN-GoP">
             <objects>
-                <viewController storyboardIdentifier="Login" id="ciY-oy-4ds" customClass="LoginViewController" customModule="bookshelf" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Login" modalPresentationStyle="fullScreen" id="ciY-oy-4ds" customClass="LoginViewController" customModule="bookshelf" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BVD-TN-Spd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="メールアドレス" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GTL-LO-rgn">
+                                <rect key="frame" x="57" y="124" width="300" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="NPE-Bi-FJy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="パスワード" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1mh-oa-pVG">
+                                <rect key="frame" x="57" y="168" width="300" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="a5R-Dg-FUn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="alphabet" secureTextEntry="YES"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="アカウント作成時は実名を入力" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wve-6B-C1g">
+                                <rect key="frame" x="57" y="212" width="300" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="duA-NW-5no"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="br7-CF-1ug">
+                                <rect key="frame" x="57" y="256" width="300" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="bWJ-Or-I6U"/>
+                                </constraints>
+                                <state key="normal" title="ログイン" backgroundImage="btn"/>
+                                <connections>
+                                    <action selector="handleLoginButton:" destination="ciY-oy-4ds" eventType="touchUpInside" id="HiH-cE-cqE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3L2-T9-rL4">
+                                <rect key="frame" x="57" y="306" width="300" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="q1N-tE-b66"/>
+                                </constraints>
+                                <state key="normal" title="アカウント作成" backgroundImage="btn"/>
+                                <connections>
+                                    <action selector="handleCreateAccountButton:" destination="ciY-oy-4ds" eventType="touchUpInside" id="z0E-8d-24h"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="wve-6B-C1g" firstAttribute="centerX" secondItem="BVD-TN-Spd" secondAttribute="centerX" id="6sm-BW-SBJ"/>
+                            <constraint firstItem="GTL-LO-rgn" firstAttribute="centerX" secondItem="BVD-TN-Spd" secondAttribute="centerX" id="DGu-zF-WVz"/>
+                            <constraint firstItem="br7-CF-1ug" firstAttribute="centerX" secondItem="BVD-TN-Spd" secondAttribute="centerX" id="DgS-r4-K1V"/>
+                            <constraint firstItem="wve-6B-C1g" firstAttribute="top" secondItem="1mh-oa-pVG" secondAttribute="bottom" constant="10" id="E9y-Ah-DTK"/>
+                            <constraint firstItem="1mh-oa-pVG" firstAttribute="centerX" secondItem="BVD-TN-Spd" secondAttribute="centerX" id="ETL-PO-qqt"/>
+                            <constraint firstItem="1mh-oa-pVG" firstAttribute="top" secondItem="GTL-LO-rgn" secondAttribute="bottom" constant="10" id="Od8-mF-pKL"/>
+                            <constraint firstItem="3L2-T9-rL4" firstAttribute="top" secondItem="br7-CF-1ug" secondAttribute="bottom" constant="10" id="Uz4-jA-Wvf"/>
+                            <constraint firstItem="3L2-T9-rL4" firstAttribute="centerX" secondItem="BVD-TN-Spd" secondAttribute="centerX" id="qKE-KQ-JAl"/>
+                            <constraint firstItem="br7-CF-1ug" firstAttribute="top" secondItem="wve-6B-C1g" secondAttribute="bottom" constant="10" id="sdf-CC-t0N"/>
+                            <constraint firstItem="GTL-LO-rgn" firstAttribute="top" secondItem="bBW-uL-t8e" secondAttribute="top" constant="80" id="sym-Oh-SPD"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="bBW-uL-t8e"/>
                     </view>
+                    <connections>
+                        <outlet property="mailAddressTextField" destination="GTL-LO-rgn" id="NLq-wO-XOW"/>
+                        <outlet property="nameTextField" destination="wve-6B-C1g" id="Rar-V1-CfK"/>
+                        <outlet property="passwordTextField" destination="1mh-oa-pVG" id="n42-S0-VEi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5lD-F4-5ka" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="930" y="127"/>
+            <point key="canvasLocation" x="1839.1304347826087" y="126.5625"/>
         </scene>
-        <!--Home View Controller-->
+        <!--ホーム-->
         <scene sceneID="LIn-bA-VqI">
             <objects>
                 <viewController storyboardIdentifier="Home" id="CGC-6v-73R" customClass="HomeViewController" customModule="bookshelf" customModuleProvider="target" sceneMemberID="viewController">
@@ -47,40 +95,132 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="lNC-cb-gp8"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="ホーム" id="CPs-Cq-CGE"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fK8-sL-vao" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1661" y="127"/>
+            <point key="canvasLocation" x="-574" y="894"/>
         </scene>
-        <!--Code Reader View Controller-->
+        <!--読み込み-->
         <scene sceneID="77w-wf-opx">
             <objects>
                 <viewController storyboardIdentifier="Codereader" id="nJq-Id-68J" customClass="CodeReaderViewController" customModule="bookshelf" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rxs-RK-D4G">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T2f-eE-Gnh">
+                                <rect key="frame" x="57" y="124" width="300" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="g5h-qQ-H6G"/>
+                                </constraints>
+                                <state key="normal" title="バーコードの読み込み" backgroundImage="btn"/>
+                                <connections>
+                                    <action selector="cameraButtonAction:" destination="nJq-Id-68J" eventType="touchUpInside" id="Q8A-ze-lnb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vYa-7p-gwx">
+                                <rect key="frame" x="57" y="174" width="300" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="0ZD-n2-10w"/>
+                                </constraints>
+                                <state key="normal" title="キャンセル" backgroundImage="btn"/>
+                                <connections>
+                                    <action selector="cancelButtonAction:" destination="nJq-Id-68J" eventType="touchUpInside" id="v3f-Ts-3rT"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="vYa-7p-gwx" firstAttribute="top" secondItem="T2f-eE-Gnh" secondAttribute="bottom" constant="10" id="O0L-SJ-MWA"/>
+                            <constraint firstItem="T2f-eE-Gnh" firstAttribute="top" secondItem="lrK-hA-uED" secondAttribute="top" constant="80" id="UNY-fc-8Cc"/>
+                            <constraint firstItem="vYa-7p-gwx" firstAttribute="centerX" secondItem="rxs-RK-D4G" secondAttribute="centerX" id="hzr-98-O0S"/>
+                            <constraint firstItem="T2f-eE-Gnh" firstAttribute="centerX" secondItem="rxs-RK-D4G" secondAttribute="centerX" id="jrd-sS-dfv"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="lrK-hA-uED"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="読み込み" id="tpQ-l4-OWJ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yfB-t1-qeS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="929" y="894"/>
+            <point key="canvasLocation" x="787" y="894"/>
         </scene>
-        <!--Setting View Controller-->
-        <scene sceneID="aAZ-80-yQ1">
+        <!--設定-->
+        <scene sceneID="Axo-5m-mAZ">
             <objects>
-                <viewController storyboardIdentifier="Setting" id="sLP-FS-O0h" customClass="SettingViewController" customModule="bookshelf" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ww2-tf-ElU">
+                <viewController storyboardIdentifier="Setting" id="jh5-h5-8gP" customClass="SettingViewController" customModule="bookshelf" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="INd-Lc-CUE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1ON-qZ-QeG">
+                                <rect key="frame" x="57" y="124" width="300" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="otr-mo-FwU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u1S-75-1QK">
+                                <rect key="frame" x="57" y="168" width="300" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="dRg-Ni-dvB"/>
+                                </constraints>
+                                <state key="normal" title="表示名を変更" backgroundImage="btn">
+                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="handleChangeButton:" destination="jh5-h5-8gP" eventType="touchUpInside" id="Qy1-CO-Gih"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DBm-Gt-9kA">
+                                <rect key="frame" x="57" y="218" width="300" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="6go-wM-C68"/>
+                                </constraints>
+                                <state key="normal" title="ログアウト" backgroundImage="btn">
+                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="handleLogoutButton:" destination="jh5-h5-8gP" eventType="touchUpInside" id="iVt-kR-Mqu"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="1ON-qZ-QeG" firstAttribute="top" secondItem="bLD-sb-wg7" secondAttribute="top" constant="80" id="8pd-EJ-Y3i"/>
+                            <constraint firstItem="1ON-qZ-QeG" firstAttribute="centerX" secondItem="INd-Lc-CUE" secondAttribute="centerX" id="Jpe-XE-VhD"/>
+                            <constraint firstItem="u1S-75-1QK" firstAttribute="top" secondItem="1ON-qZ-QeG" secondAttribute="bottom" constant="10" id="dfd-w1-QCj"/>
+                            <constraint firstItem="DBm-Gt-9kA" firstAttribute="centerX" secondItem="INd-Lc-CUE" secondAttribute="centerX" id="lur-c5-ef6"/>
+                            <constraint firstItem="DBm-Gt-9kA" firstAttribute="top" secondItem="u1S-75-1QK" secondAttribute="bottom" constant="10" id="tUI-L6-ble"/>
+                            <constraint firstItem="u1S-75-1QK" firstAttribute="centerX" secondItem="INd-Lc-CUE" secondAttribute="centerX" id="vKW-WC-KKg"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="bLD-sb-wg7"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="設定" id="s0U-c0-bZL"/>
+                    <connections>
+                        <outlet property="nameTextField" destination="1ON-qZ-QeG" id="JNU-MC-034"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DT4-yh-QPl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1458" y="894"/>
+        </scene>
+        <!--本棚-->
+        <scene sceneID="2ZC-Py-2J0">
+            <objects>
+                <viewController storyboardIdentifier="Bookshelf" id="lq3-KO-ChO" customClass="BookshelfViewController" customModule="bookshelf" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="v21-UT-cNx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="qdr-go-pFp"/>
+                        <viewLayoutGuide key="safeArea" id="37o-Wy-bti"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="本棚" id="o7W-eG-Nw1"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7pE-oG-Do5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kKP-oV-4Ra" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1635" y="894"/>
+            <point key="canvasLocation" x="99" y="894"/>
         </scene>
         <!--Post View Controller-->
         <scene sceneID="8Od-SR-Lga">
@@ -89,13 +229,101 @@
                     <view key="view" contentMode="scaleToFill" id="gHd-8X-L3v">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hEz-4g-f62">
+                                <rect key="frame" x="107" y="84" width="200" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="BLp-MB-LSf"/>
+                                    <constraint firstAttribute="height" constant="300" id="xsS-pu-8wn"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイトル" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="coH-lK-qKg">
+                                <rect key="frame" x="172.5" y="394" width="69.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQC-Bo-3mb">
+                                <rect key="frame" x="57" y="606" width="300" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="5Hg-mk-BAJ"/>
+                                </constraints>
+                                <state key="normal" title="投稿" backgroundImage="btn">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="handlePostButton:" destination="jRb-Dq-FV0" eventType="touchUpInside" id="MZi-rr-HWl"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" text="本のコメントを記載" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Ucc-b7-Tgy">
+                                <rect key="frame" x="87" y="440" width="240" height="128"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PcK-H7-aew">
+                                <rect key="frame" x="57" y="644" width="300" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="iu7-xs-3Fu"/>
+                                </constraints>
+                                <state key="normal" title="キャンセル" backgroundImage="btn">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="handleCancelButton:" destination="jRb-Dq-FV0" eventType="touchUpInside" id="uwE-dj-6CW"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="hEz-4g-f62" firstAttribute="centerX" secondItem="gHd-8X-L3v" secondAttribute="centerX" id="0mR-ow-KCq"/>
+                            <constraint firstItem="Ucc-b7-Tgy" firstAttribute="top" secondItem="coH-lK-qKg" secondAttribute="bottom" constant="10" id="2cM-3l-lQP"/>
+                            <constraint firstItem="hEz-4g-f62" firstAttribute="top" secondItem="LBE-qY-ZNf" secondAttribute="top" constant="40" id="7I8-Xl-f35"/>
+                            <constraint firstItem="coH-lK-qKg" firstAttribute="centerX" secondItem="gHd-8X-L3v" secondAttribute="centerX" id="JfM-pT-pcq"/>
+                            <constraint firstItem="coH-lK-qKg" firstAttribute="top" secondItem="hEz-4g-f62" secondAttribute="bottom" constant="10" id="LEH-nv-3u1"/>
+                            <constraint firstItem="PcK-H7-aew" firstAttribute="centerX" secondItem="gHd-8X-L3v" secondAttribute="centerX" id="PkG-bU-cEB"/>
+                            <constraint firstItem="Ucc-b7-Tgy" firstAttribute="centerX" secondItem="gHd-8X-L3v" secondAttribute="centerX" id="R4h-73-bal"/>
+                            <constraint firstItem="hQC-Bo-3mb" firstAttribute="centerX" secondItem="gHd-8X-L3v" secondAttribute="centerX" id="RLu-KE-SgZ"/>
+                            <constraint firstItem="hQC-Bo-3mb" firstAttribute="top" secondItem="Ucc-b7-Tgy" secondAttribute="bottom" constant="10" id="iwN-yh-18z"/>
+                            <constraint firstItem="PcK-H7-aew" firstAttribute="top" secondItem="hQC-Bo-3mb" secondAttribute="bottom" constant="10" id="nSt-sV-7oe"/>
+                            <constraint firstItem="hEz-4g-f62" firstAttribute="centerX" secondItem="gHd-8X-L3v" secondAttribute="centerX" id="xBt-in-Rn9"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="LBE-qY-ZNf"/>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="hEz-4g-f62" id="xu6-fx-YQ0"/>
+                        <outlet property="textField" destination="coH-lK-qKg" id="M4p-nZ-Ffi"/>
+                        <outlet property="textView" destination="Ucc-b7-Tgy" id="EdJ-Mu-VXr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6JX-0w-ImI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="138" y="894"/>
+            <point key="canvasLocation" x="2386.9565217391305" y="893.97321428571422"/>
+        </scene>
+        <!--設定-->
+        <scene sceneID="9bn-N2-NKr">
+            <objects>
+                <tabBarController title="設定" automaticallyAdjustsScrollViewInsets="NO" id="Qfl-oA-lPJ" customClass="TabBarController" customModule="bookshelf" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="tlT-Qb-dH7">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="CGC-6v-73R" kind="relationship" relationship="viewControllers" id="lMw-ex-NsD"/>
+                        <segue destination="lq3-KO-ChO" kind="relationship" relationship="viewControllers" id="XXj-mp-tnK"/>
+                        <segue destination="nJq-Id-68J" kind="relationship" relationship="viewControllers" id="7vq-q7-pj9"/>
+                        <segue destination="jh5-h5-8gP" kind="relationship" relationship="viewControllers" id="zvV-FP-pm9"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U0f-ht-iFn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="126.5625"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="btn" width="300" height="40"/>
+    </resources>
 </document>

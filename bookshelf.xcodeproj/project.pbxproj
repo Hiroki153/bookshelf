@@ -3,13 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		4E3CEC17257DFB16001E901E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3CEC16257DFB16001E901E /* AppDelegate.swift */; };
 		4E3CEC19257DFB16001E901E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3CEC18257DFB16001E901E /* SceneDelegate.swift */; };
-		4E3CEC1B257DFB16001E901E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3CEC1A257DFB16001E901E /* ViewController.swift */; };
 		4E3CEC1E257DFB16001E901E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E3CEC1C257DFB16001E901E /* Main.storyboard */; };
 		4E3CEC20257DFB1C001E901E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E3CEC1F257DFB1C001E901E /* Assets.xcassets */; };
 		4E3CEC23257DFB1C001E901E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E3CEC21257DFB1C001E901E /* LaunchScreen.storyboard */; };
@@ -18,6 +17,10 @@
 		4E3CEC2F257DFBCB001E901E /* CodeReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3CEC2E257DFBCB001E901E /* CodeReaderViewController.swift */; };
 		4E3CEC31257DFBE8001E901E /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3CEC30257DFBE8001E901E /* PostViewController.swift */; };
 		4E3CEC33257DFC03001E901E /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3CEC32257DFC03001E901E /* SettingViewController.swift */; };
+		4E3CEC35257E0467001E901E /* BookshelfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3CEC34257E0467001E901E /* BookshelfViewController.swift */; };
+		4E3CEC39257E06B3001E901E /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3CEC38257E06B3001E901E /* TabBarController.swift */; };
+		4E3CEC3B257E09D1001E901E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4E3CEC3A257E09D1001E901E /* GoogleService-Info.plist */; };
+		4E3CEC3D2585F1B8001E901E /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3CEC3C2585F1B8001E901E /* Const.swift */; };
 		73AC61303DF17DCA309E5681 /* Pods_bookshelf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A84F836E01544CD2E1358D5A /* Pods_bookshelf.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,7 +28,6 @@
 		4E3CEC13257DFB16001E901E /* bookshelf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bookshelf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E3CEC16257DFB16001E901E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4E3CEC18257DFB16001E901E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4E3CEC1A257DFB16001E901E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4E3CEC1D257DFB16001E901E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4E3CEC1F257DFB1C001E901E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4E3CEC22257DFB1C001E901E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -35,6 +37,10 @@
 		4E3CEC2E257DFBCB001E901E /* CodeReaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeReaderViewController.swift; sourceTree = "<group>"; };
 		4E3CEC30257DFBE8001E901E /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		4E3CEC32257DFC03001E901E /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		4E3CEC34257E0467001E901E /* BookshelfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookshelfViewController.swift; sourceTree = "<group>"; };
+		4E3CEC38257E06B3001E901E /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		4E3CEC3A257E09D1001E901E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4E3CEC3C2585F1B8001E901E /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		550F35AF118CE539F37DD42F /* Pods-bookshelf.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bookshelf.release.xcconfig"; path = "Target Support Files/Pods-bookshelf/Pods-bookshelf.release.xcconfig"; sourceTree = "<group>"; };
 		6CD70F132707956990876B45 /* Pods-bookshelf.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bookshelf.debug.xcconfig"; path = "Target Support Files/Pods-bookshelf/Pods-bookshelf.debug.xcconfig"; sourceTree = "<group>"; };
 		A84F836E01544CD2E1358D5A /* Pods_bookshelf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bookshelf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,7 +81,6 @@
 			children = (
 				4E3CEC16257DFB16001E901E /* AppDelegate.swift */,
 				4E3CEC18257DFB16001E901E /* SceneDelegate.swift */,
-				4E3CEC1A257DFB16001E901E /* ViewController.swift */,
 				4E3CEC1C257DFB16001E901E /* Main.storyboard */,
 				4E3CEC1F257DFB1C001E901E /* Assets.xcassets */,
 				4E3CEC21257DFB1C001E901E /* LaunchScreen.storyboard */,
@@ -85,6 +90,10 @@
 				4E3CEC2E257DFBCB001E901E /* CodeReaderViewController.swift */,
 				4E3CEC30257DFBE8001E901E /* PostViewController.swift */,
 				4E3CEC32257DFC03001E901E /* SettingViewController.swift */,
+				4E3CEC34257E0467001E901E /* BookshelfViewController.swift */,
+				4E3CEC38257E06B3001E901E /* TabBarController.swift */,
+				4E3CEC3A257E09D1001E901E /* GoogleService-Info.plist */,
+				4E3CEC3C2585F1B8001E901E /* Const.swift */,
 			);
 			path = bookshelf;
 			sourceTree = "<group>";
@@ -103,7 +112,6 @@
 				6CD70F132707956990876B45 /* Pods-bookshelf.debug.xcconfig */,
 				550F35AF118CE539F37DD42F /* Pods-bookshelf.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -118,6 +126,7 @@
 				4E3CEC0F257DFB16001E901E /* Sources */,
 				4E3CEC10257DFB16001E901E /* Frameworks */,
 				4E3CEC11257DFB16001E901E /* Resources */,
+				6588AC8371EE8420FD2D7464 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -167,6 +176,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E3CEC23257DFB1C001E901E /* LaunchScreen.storyboard in Resources */,
+				4E3CEC3B257E09D1001E901E /* GoogleService-Info.plist in Resources */,
 				4E3CEC20257DFB1C001E901E /* Assets.xcassets in Resources */,
 				4E3CEC1E257DFB16001E901E /* Main.storyboard in Resources */,
 			);
@@ -175,6 +185,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		6588AC8371EE8420FD2D7464 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-bookshelf/Pods-bookshelf-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-bookshelf/Pods-bookshelf-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-bookshelf/Pods-bookshelf-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		A17FAED71BF37FF561B1273B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -207,11 +234,13 @@
 				4E3CEC2D257DFBAD001E901E /* HomeViewController.swift in Sources */,
 				4E3CEC2B257DFB8B001E901E /* LoginViewController.swift in Sources */,
 				4E3CEC31257DFBE8001E901E /* PostViewController.swift in Sources */,
+				4E3CEC39257E06B3001E901E /* TabBarController.swift in Sources */,
 				4E3CEC33257DFC03001E901E /* SettingViewController.swift in Sources */,
-				4E3CEC1B257DFB16001E901E /* ViewController.swift in Sources */,
+				4E3CEC35257E0467001E901E /* BookshelfViewController.swift in Sources */,
 				4E3CEC17257DFB16001E901E /* AppDelegate.swift in Sources */,
 				4E3CEC2F257DFBCB001E901E /* CodeReaderViewController.swift in Sources */,
 				4E3CEC19257DFB16001E901E /* SceneDelegate.swift in Sources */,
+				4E3CEC3D2585F1B8001E901E /* Const.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
