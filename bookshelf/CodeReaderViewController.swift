@@ -15,7 +15,7 @@ class CodeReaderViewController: UIViewController, AVCaptureMetadataOutputObjects
     var captureDevice:AVCaptureDevice?
     var videoPreviewLayer:AVCaptureVideoPreviewLayer?
     var captureSession:AVCaptureSession?
-    var isbn:[Int] = []
+    var text:String = ""
     //本の情報一式を「タプル」としてまとめ、「配列」に格納
     var bookList : [(title:String?, image:URL)] = []
     
@@ -24,7 +24,7 @@ class CodeReaderViewController: UIViewController, AVCaptureMetadataOutputObjects
         //本のタイトル
         let title: String?
         //画像URL
-        let image: URL?
+        let mediumImageUrl: URL?
     }
     
     //JSONのデータ構造
@@ -172,7 +172,7 @@ class CodeReaderViewController: UIViewController, AVCaptureMetadataOutputObjects
     //第一引数　isbnコード
     func searchBookTitle(){
         
-        var isbn = self.isbn
+        let isbn = self.text
          //本のisbnコードをURLエンコードする
         guard let isbn_encode = isbn.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else{
             return
@@ -207,7 +207,7 @@ class CodeReaderViewController: UIViewController, AVCaptureMetadataOutputObjects
                     //取得している本の数だけ処理
                     for item in items {
                         //本のタイトル、画像URLをアンラップ
-                        if let name = item.title, let image = item.image {
+                        if let title = item.title, let image = item.mediumImageUrl {
                             //1つの本をタプルでまとめて管理
                             let book = (self.title,image)
                             //本の配列へ追加
@@ -228,7 +228,7 @@ class CodeReaderViewController: UIViewController, AVCaptureMetadataOutputObjects
         task.resume()
     }
     
-    //JSONのデータを使えるデータに変換
+     //画像のURL情報を取り込んで、画像情報にして、取り込む必要あり？？
     
     
     //APIからデータを取ってきた後にpostViewControllerにモーダル遷移し、データの受け渡しをするメソッドが必要

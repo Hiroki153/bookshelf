@@ -13,7 +13,7 @@ import SVProgressHUD
 class PostViewController: UIViewController {
     
     var image: UIImage!
-    var booktitle = ""
+    var booktitle: String? = ""
     
     
     @IBOutlet weak var imageView: UIImageView!
@@ -45,7 +45,7 @@ class PostViewController: UIViewController {
                 let name = Auth.auth().currentUser?.displayName
                 let postDic = [
                     "name": name!,
-                    "booktitle": booktitle!,
+                    "booktitle": self.booktitle!,
                     "caption": self.textField.text!,
                     "date": FieldValue.serverTimestamp(),
                     ] as [String : Any]
