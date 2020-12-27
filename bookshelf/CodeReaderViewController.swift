@@ -19,19 +19,7 @@ class CodeReaderViewController: UIViewController, AVCaptureMetadataOutputObjects
     //本の情報一式を「タプル」としてまとめ、「配列」に格納
     var book : [(title:String?, image:URL)] = []
     
-    //JSONのitem内のデータ構造
-    struct ItemJson: Codable {
-        //本のタイトル
-        let title: String?
-        //画像URL
-        let mediumImageUrl: URL?
-    }
-    
-    //JSONのデータ構造
-    struct ResultJson: Codable {
-        //複数要素
-        let item:[ItemJson]?
-    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -207,16 +195,12 @@ class CodeReaderViewController: UIViewController, AVCaptureMetadataOutputObjects
                     if items.count > 0 {
                     //取得している本の数だけ処理
                         let item = items[0]
-                        //本のタイトル、画像URLをアンラップ
-                        if let booktitle = item.title, let image = item.mediumImageUrl {
+                        
 
-                            let postViewController = self.storyboard?.instantiateViewController(withIdentifier: "Post") as! PostViewController
-                            postViewController.booktitle = booktitle
-                            postViewController.imageurl = image
-                            self.present(postViewController, animated: true, completion: nil)
-
-                        }
-                    }
+                        let postViewController = self.storyboard?.instantiateViewController(withIdentifier: "Post") as! PostViewController
+                        postViewController.item = item
+                        self.present(postViewController, animated: true, completion: nil)
+                     }
                 }
             } catch {
                 //エラー処理
@@ -239,4 +223,18 @@ class CodeReaderViewController: UIViewController, AVCaptureMetadataOutputObjects
     }
     */
 
+}
+
+//JSONのitem内のデータ構造
+struct ItemJson: Codable {
+    //本のタイトル
+    let title: String?
+    //画像URL
+    let mediumImageUrl: URL?
+}
+
+//JSONのデータ構造
+struct ResultJson: Codable {
+    //複数要素
+    let item:[ItemJson]?
 }

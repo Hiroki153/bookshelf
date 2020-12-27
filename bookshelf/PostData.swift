@@ -13,6 +13,7 @@ class PostData: NSObject {
     var id: String
     var name: String?
     var booktitle: String?
+    var bookimage: UIImage!
     var caption: String?
     var date: Date?
     var likes: [String] = []
@@ -28,6 +29,8 @@ class PostData: NSObject {
         self.caption = postDic["caption"] as? String
         
         self.booktitle = postDic["booktitle"] as? String
+        
+        self.bookimage = postDic["bookimage"] as? UIImage
 
         let timestamp = postDic["date"] as? Timestamp
         self.date = timestamp?.dateValue()
