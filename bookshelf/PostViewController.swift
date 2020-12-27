@@ -13,7 +13,7 @@ import SVProgressHUD
 class PostViewController: UIViewController {
     
 
-    var imageurl: String = ""
+    var imageurl = URL(string: imageurl)
     let bookimage:UIImage = UIImage(url: "")
     var booktitle: String? = ""
     
