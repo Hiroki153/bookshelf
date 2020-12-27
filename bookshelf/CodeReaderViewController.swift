@@ -17,7 +17,7 @@ class CodeReaderViewController: UIViewController, AVCaptureMetadataOutputObjects
     var captureSession:AVCaptureSession?
     var text:String = ""
     //本の情報一式を「タプル」としてまとめ、「配列」に格納
-    var bookList : [(title:String?, image:URL)] = []
+    var book : [(title:String?, image:URL)] = []
     
     //JSONのitem内のデータ構造
     struct ItemJson: Codable {
@@ -204,19 +204,18 @@ class CodeReaderViewController: UIViewController, AVCaptureMetadataOutputObjects
                 
                 //本の情報が取得できているか確認
                 if let items = json.item {
+                    if items.count > 0 {
                     //取得している本の数だけ処理
-                    for item in items {
+                        let item = items[0]
                         //本のタイトル、画像URLをアンラップ
-                        if let title = item.title, let image = item.mediumImageUrl {
-                            //1つの本をタプルでまとめて管理
-                            let book = (self.title,image)
-                            //本の配列へ追加
-                            self.bookList.append(book)
+                        if let booktitle = item.title, let image = item.mediumImageUrl {
+
+                            let postViewController = self.storyboard?.instantiateViewController(withIdentifier: "Post") as! PostViewController
+                            postViewController.booktitle = booktitle
+                            postViewController.imageurl = image
+                            self.present(postViewController, animated: true, completion: nil)
+
                         }
-                    }
-                    if let bookdbg = self.bookList.first {
-                        print ("-----------------")
-                        print ("bookList[0 = \(bookdbg)]")
                     }
                 }
             } catch {
@@ -226,31 +225,10 @@ class CodeReaderViewController: UIViewController, AVCaptureMetadataOutputObjects
         })
         //ダウンロード開始
         task.resume()
-    }
-    
-     //画像のURL情報を取り込んで、画像情報にして、取り込む必要あり？？
-    
-    
-    //APIからデータを取ってきた後にpostViewControllerにモーダル遷移し、データの受け渡しをするメソッドが必要
-    //その際にデータを変換するメソッドが必要
         
-    func imageSettingController(_picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if info[.originalImage] != nil {
-            //JSONで取得された画像・本のタイトルを代入する
-            let image = info[.originalImage] as! UIImage
-            let title = self.title!
-            
-            //投稿画面を開く
-            let postViewController = self.storyboard?.instantiateViewController(withIdentifier: "Post") as! PostViewController
-            postViewController.image = image
-            postViewController.booktitle = title
-            present(postViewController, animated: true, completion: nil)
-        }
+        
     }
     
-
-    
-
     /*
     // MARK: - Navigation
 

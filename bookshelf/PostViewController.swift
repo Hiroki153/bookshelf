@@ -12,7 +12,9 @@ import SVProgressHUD
 
 class PostViewController: UIViewController {
     
-    var image: UIImage!
+
+    var imageurl: String = ""
+    let bookimage:UIImage = UIImage(url: "")
     var booktitle: String? = ""
     
     
@@ -23,7 +25,7 @@ class PostViewController: UIViewController {
     //投稿ボタンをタップした時に呼ばれるメソッド
     @IBAction func handlePostButton(_ sender: Any) {
             // 画像をJPEG形式に変換する
-            let imageData = image.jpegData(compressionQuality: 0.75)
+            let imageData = bookimage.jpegData(compressionQuality: 0.75)
             // 画像と投稿データの保存場所を定義する
             let postRef = Firestore.firestore().collection(Const.PostPath).document()
             let imageRef = Storage.storage().reference().child(Const.ImagePath).child(postRef.documentID + ".jpg")
@@ -45,6 +47,7 @@ class PostViewController: UIViewController {
                 let name = Auth.auth().currentUser?.displayName
                 let postDic = [
                     "name": name!,
+                    "bookimage": self.imageView.image,
                     "booktitle": self.booktitle!,
                     "caption": self.textField.text!,
                     "date": FieldValue.serverTimestamp(),
@@ -68,7 +71,7 @@ class PostViewController: UIViewController {
         super.viewDidLoad()
 
         //APIで取得した画像をImageViewに設定する
-        imageView.image = image
+        imageView.image = UIImage(url: imageurl)
         //本のタイトルをセットする
         textField.text = booktitle
         
@@ -86,4 +89,18 @@ class PostViewController: UIViewController {
     }
     */
 
+}
+
+extension UIImage {
+    public convenience init(url: String) {
+        let url = URL(string: url)
+        do{
+            let data = try Data(contentsOf: url!)
+            self.init(data: data)!
+            return
+        } catch let err {
+            print("Error : \(err.localizedDescription)")
+        }
+        self.init()
+    }
 }

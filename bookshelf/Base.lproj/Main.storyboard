@@ -92,10 +92,25 @@
                     <view key="view" contentMode="scaleToFill" id="cgh-TW-yHu">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="q7Z-Fg-iUa">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="lNC-cb-gp8" firstAttribute="trailing" secondItem="q7Z-Fg-iUa" secondAttribute="trailing" id="2zp-RZ-hsP"/>
+                            <constraint firstItem="lNC-cb-gp8" firstAttribute="bottom" secondItem="q7Z-Fg-iUa" secondAttribute="bottom" id="FoL-t2-RZs"/>
+                            <constraint firstItem="q7Z-Fg-iUa" firstAttribute="leading" secondItem="lNC-cb-gp8" secondAttribute="leading" id="Ha3-1f-SsF"/>
+                            <constraint firstItem="q7Z-Fg-iUa" firstAttribute="top" secondItem="lNC-cb-gp8" secondAttribute="top" id="csI-w2-yqo"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="lNC-cb-gp8"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="ホーム" id="CPs-Cq-CGE"/>
+                    <tabBarItem key="tabBarItem" title="ホーム" image="home" id="CPs-Cq-CGE"/>
+                    <connections>
+                        <outlet property="tableView" destination="q7Z-Fg-iUa" id="u96-10-Ou4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fK8-sL-vao" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -139,7 +154,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lrK-hA-uED"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="読み込み" id="tpQ-l4-OWJ"/>
+                    <tabBarItem key="tabBarItem" title="読み込み" image="camera" id="tpQ-l4-OWJ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yfB-t1-qeS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -197,7 +212,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bLD-sb-wg7"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="設定" id="s0U-c0-bZL"/>
+                    <tabBarItem key="tabBarItem" title="設定" image="setting" id="s0U-c0-bZL"/>
                     <connections>
                         <outlet property="nameTextField" destination="1ON-qZ-QeG" id="JNU-MC-034"/>
                     </connections>
@@ -216,7 +231,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="37o-Wy-bti"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="本棚" id="o7W-eG-Nw1"/>
+                    <tabBarItem key="tabBarItem" title="本棚" image="bookshelf" id="o7W-eG-Nw1"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kKP-oV-4Ra" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -324,6 +339,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bookshelf" width="25" height="28"/>
         <image name="btn" width="300" height="40"/>
+        <image name="camera" width="25" height="20"/>
+        <image name="home" width="25" height="23"/>
+        <image name="setting" width="25" height="25"/>
     </resources>
 </document>
