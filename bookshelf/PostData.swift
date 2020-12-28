@@ -30,7 +30,9 @@ class PostData: NSObject {
         
         self.booktitle = postDic["booktitle"] as? String
         
-        self.bookimage = postDic["bookimage"] as? UIImage
+        if let urlString = postDic["bookimage"] as? String, let url = URL(string: urlString){
+            self.bookimage = UIImage(url: url)
+        }
 
         let timestamp = postDic["date"] as? Timestamp
         self.date = timestamp?.dateValue()
