@@ -24,6 +24,9 @@
 		4E3CEC5F258F6A5D001E901E /* PostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3CEC5E258F6A5D001E901E /* PostData.swift */; };
 		4E3CEC62258F6B59001E901E /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3CEC60258F6B59001E901E /* PostTableViewCell.swift */; };
 		4E3CEC63258F6B59001E901E /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E3CEC61258F6B59001E901E /* PostTableViewCell.xib */; };
+		4E69242225A17D5B002C5672 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E69242025A17D5B002C5672 /* CollectionViewCell.swift */; };
+		4E69242325A17D5B002C5672 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E69242125A17D5B002C5672 /* CollectionViewCell.xib */; };
+		4E69242725A1F014002C5672 /* MyPostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E69242625A1F014002C5672 /* MyPostDetailViewController.swift */; };
 		73AC61303DF17DCA309E5681 /* Pods_bookshelf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A84F836E01544CD2E1358D5A /* Pods_bookshelf.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +50,9 @@
 		4E3CEC5E258F6A5D001E901E /* PostData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostData.swift; sourceTree = "<group>"; };
 		4E3CEC60258F6B59001E901E /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		4E3CEC61258F6B59001E901E /* PostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
+		4E69242025A17D5B002C5672 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		4E69242125A17D5B002C5672 /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
+		4E69242625A1F014002C5672 /* MyPostDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostDetailViewController.swift; sourceTree = "<group>"; };
 		550F35AF118CE539F37DD42F /* Pods-bookshelf.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bookshelf.release.xcconfig"; path = "Target Support Files/Pods-bookshelf/Pods-bookshelf.release.xcconfig"; sourceTree = "<group>"; };
 		6CD70F132707956990876B45 /* Pods-bookshelf.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bookshelf.debug.xcconfig"; path = "Target Support Files/Pods-bookshelf/Pods-bookshelf.debug.xcconfig"; sourceTree = "<group>"; };
 		A84F836E01544CD2E1358D5A /* Pods_bookshelf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bookshelf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,6 +109,9 @@
 				4E3CEC3C2585F1B8001E901E /* Const.swift */,
 				4E3CEC60258F6B59001E901E /* PostTableViewCell.swift */,
 				4E3CEC61258F6B59001E901E /* PostTableViewCell.xib */,
+				4E69242025A17D5B002C5672 /* CollectionViewCell.swift */,
+				4E69242125A17D5B002C5672 /* CollectionViewCell.xib */,
+				4E69242625A1F014002C5672 /* MyPostDetailViewController.swift */,
 			);
 			path = bookshelf;
 			sourceTree = "<group>";
@@ -186,6 +195,7 @@
 			files = (
 				4E3CEC23257DFB1C001E901E /* LaunchScreen.storyboard in Resources */,
 				4E3CEC63258F6B59001E901E /* PostTableViewCell.xib in Resources */,
+				4E69242325A17D5B002C5672 /* CollectionViewCell.xib in Resources */,
 				4E3CEC3B257E09D1001E901E /* GoogleService-Info.plist in Resources */,
 				4E3CEC20257DFB1C001E901E /* Assets.xcassets in Resources */,
 				4E3CEC1E257DFB16001E901E /* Main.storyboard in Resources */,
@@ -249,7 +259,9 @@
 				4E3CEC35257E0467001E901E /* BookshelfViewController.swift in Sources */,
 				4E3CEC17257DFB16001E901E /* AppDelegate.swift in Sources */,
 				4E3CEC2F257DFBCB001E901E /* CodeReaderViewController.swift in Sources */,
+				4E69242225A17D5B002C5672 /* CollectionViewCell.swift in Sources */,
 				4E3CEC19257DFB16001E901E /* SceneDelegate.swift in Sources */,
+				4E69242725A1F014002C5672 /* MyPostDetailViewController.swift in Sources */,
 				4E3CEC5F258F6A5D001E901E /* PostData.swift in Sources */,
 				4E3CEC3D2585F1B8001E901E /* Const.swift in Sources */,
 				4E3CEC62258F6B59001E901E /* PostTableViewCell.swift in Sources */,

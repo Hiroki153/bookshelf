@@ -50,7 +50,7 @@ class PostViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //APIで取得した画像をImageViewに設定する if let で餡ラップでも可
+        //APIで取得した画像をImageViewに設定する if let でアンラップでも可
         imageView.image = UIImage(url: item!.mediumImageUrl!)
         //本のタイトルをセットする
         textField.text = item!.title
