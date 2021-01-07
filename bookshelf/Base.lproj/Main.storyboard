@@ -252,7 +252,6 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="本棚" image="bookshelf" id="o7W-eG-Nw1"/>
                     <connections>
-                        <outlet property="collectionView" destination="QVc-r6-7f0" id="5y8-bY-cJA"/>
                         <outlet property="collectionview" destination="QVc-r6-7f0" id="0dG-dc-1hp"/>
                         <segue destination="A0N-Hm-FDH" kind="show" identifier="itemSegue" id="5x2-e7-mSf"/>
                     </connections>

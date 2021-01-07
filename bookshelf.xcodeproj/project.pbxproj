@@ -27,10 +27,12 @@
 		4E69242225A17D5B002C5672 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E69242025A17D5B002C5672 /* CollectionViewCell.swift */; };
 		4E69242325A17D5B002C5672 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E69242125A17D5B002C5672 /* CollectionViewCell.xib */; };
 		4E69242725A1F014002C5672 /* MyPostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E69242625A1F014002C5672 /* MyPostDetailViewController.swift */; };
-		73AC61303DF17DCA309E5681 /* Pods_bookshelf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A84F836E01544CD2E1358D5A /* Pods_bookshelf.framework */; };
+		99898614B27730B9CB224B9E /* Pods_bookshelf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44499ADA02020C19BD284A6D /* Pods_bookshelf.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2DF81CCEBD999220F827B4B0 /* Pods-bookshelf.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bookshelf.release.xcconfig"; path = "Target Support Files/Pods-bookshelf/Pods-bookshelf.release.xcconfig"; sourceTree = "<group>"; };
+		44499ADA02020C19BD284A6D /* Pods_bookshelf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bookshelf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E3CEC13257DFB16001E901E /* bookshelf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bookshelf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E3CEC16257DFB16001E901E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4E3CEC18257DFB16001E901E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,9 +55,7 @@
 		4E69242025A17D5B002C5672 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		4E69242125A17D5B002C5672 /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		4E69242625A1F014002C5672 /* MyPostDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostDetailViewController.swift; sourceTree = "<group>"; };
-		550F35AF118CE539F37DD42F /* Pods-bookshelf.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bookshelf.release.xcconfig"; path = "Target Support Files/Pods-bookshelf/Pods-bookshelf.release.xcconfig"; sourceTree = "<group>"; };
-		6CD70F132707956990876B45 /* Pods-bookshelf.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bookshelf.debug.xcconfig"; path = "Target Support Files/Pods-bookshelf/Pods-bookshelf.debug.xcconfig"; sourceTree = "<group>"; };
-		A84F836E01544CD2E1358D5A /* Pods_bookshelf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bookshelf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F041640836473BA128243BA /* Pods-bookshelf.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bookshelf.debug.xcconfig"; path = "Target Support Files/Pods-bookshelf/Pods-bookshelf.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				73AC61303DF17DCA309E5681 /* Pods_bookshelf.framework in Frameworks */,
+				99898614B27730B9CB224B9E /* Pods_bookshelf.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,7 +76,7 @@
 				4E3CEC15257DFB16001E901E /* bookshelf */,
 				4E3CEC14257DFB16001E901E /* Products */,
 				AEDC3B8FF896F2A5604E6C15 /* Pods */,
-				9AD00EA6B11D890E32396FB6 /* Frameworks */,
+				5DD017E002C8A9FB02510B22 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -116,10 +116,10 @@
 			path = bookshelf;
 			sourceTree = "<group>";
 		};
-		9AD00EA6B11D890E32396FB6 /* Frameworks */ = {
+		5DD017E002C8A9FB02510B22 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A84F836E01544CD2E1358D5A /* Pods_bookshelf.framework */,
+				44499ADA02020C19BD284A6D /* Pods_bookshelf.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -127,8 +127,8 @@
 		AEDC3B8FF896F2A5604E6C15 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				6CD70F132707956990876B45 /* Pods-bookshelf.debug.xcconfig */,
-				550F35AF118CE539F37DD42F /* Pods-bookshelf.release.xcconfig */,
+				9F041640836473BA128243BA /* Pods-bookshelf.debug.xcconfig */,
+				2DF81CCEBD999220F827B4B0 /* Pods-bookshelf.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -140,11 +140,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4E3CEC27257DFB1C001E901E /* Build configuration list for PBXNativeTarget "bookshelf" */;
 			buildPhases = (
-				A17FAED71BF37FF561B1273B /* [CP] Check Pods Manifest.lock */,
+				AFC71F46DC0910C497DF8CE5 /* [CP] Check Pods Manifest.lock */,
 				4E3CEC0F257DFB16001E901E /* Sources */,
 				4E3CEC10257DFB16001E901E /* Frameworks */,
 				4E3CEC11257DFB16001E901E /* Resources */,
-				6588AC8371EE8420FD2D7464 /* [CP] Embed Pods Frameworks */,
+				192B66E6DFE8BAAD0B214EE8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -205,7 +205,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		6588AC8371EE8420FD2D7464 /* [CP] Embed Pods Frameworks */ = {
+		192B66E6DFE8BAAD0B214EE8 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -222,7 +222,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-bookshelf/Pods-bookshelf-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A17FAED71BF37FF561B1273B /* [CP] Check Pods Manifest.lock */ = {
+		AFC71F46DC0910C497DF8CE5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -406,7 +406,7 @@
 		};
 		4E3CEC28257DFB1C001E901E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6CD70F132707956990876B45 /* Pods-bookshelf.debug.xcconfig */;
+			baseConfigurationReference = 9F041640836473BA128243BA /* Pods-bookshelf.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -425,7 +425,7 @@
 		};
 		4E3CEC29257DFB1C001E901E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 550F35AF118CE539F37DD42F /* Pods-bookshelf.release.xcconfig */;
+			baseConfigurationReference = 2DF81CCEBD999220F827B4B0 /* Pods-bookshelf.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
