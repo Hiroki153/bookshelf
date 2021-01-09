@@ -13,7 +13,7 @@ import SVProgressHUD
 class PostViewController: UIViewController {
     
 
-    var item: ItemJson?
+    var item: ItemInfo?
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var textField: UILabel!

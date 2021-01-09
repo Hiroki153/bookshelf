@@ -193,9 +193,12 @@ class CodeReaderViewController: UIViewController, AVCaptureMetadataOutputObjects
                 let json = try decoder.decode(ResultJson.self, from: data!)
                 
                 print(json)
+                
+                let Items = json.Items
+                
 
                 //本の情報が取得できているか確認
-                if let items = json.item {
+                if let items = Item {
                     if items.count > 0 {
                     //取得している本の数だけ処理
                         let item = items[0]
@@ -228,16 +231,26 @@ class CodeReaderViewController: UIViewController, AVCaptureMetadataOutputObjects
 
 }
 
-//JSONのitem内のデータ構造
-struct ItemJson: Codable {
-    //本のタイトル
-    let title: String?
-    //画像URL
-    let mediumImageUrl: URL?
-}
 
 //JSONのデータ構造
 struct ResultJson: Codable {
     //複数要素
-    let item:[ItemJson]?
+    let Items:[ItemDic]?
 }
+
+struct ItemDic : Codable{
+    var Item : ItemInfo?
+}
+
+//JSONのitem内のデータ構造
+struct ItemInfo: Codable {
+
+    //本のタイトル
+    let title: String?
+    //画像URL
+    let mediumImageUrl: URL?
+    
+    
+}
+
+
