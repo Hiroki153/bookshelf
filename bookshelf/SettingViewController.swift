@@ -71,7 +71,12 @@ class SettingViewController: UIViewController {
             nameTextField.text = user.displayName
         // Do any additional setup after loading the view.
         }
+        nameTextField.layer.borderColor = UIColor.black.cgColor
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+            self.view.endEditing(true)
+        }
 
     /*
     // MARK: - Navigation

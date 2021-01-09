@@ -27,6 +27,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         //カスタムセルを登録する
         let nib = UINib(nibName: "PostTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "Cell")
+        
 
         // Do any additional setup after loading the view.
     }
@@ -78,6 +79,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         //セル内のボタンのアクションをソースコードで設定する
         cell.likeButton.addTarget(self, action:#selector(handleButton(_:forEvent:)), for: .touchUpInside)
+        
+        cell.contentView.backgroundColor = UIColor.white
 
         return cell
     }

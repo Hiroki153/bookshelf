@@ -29,9 +29,9 @@ class PostViewController: UIViewController {
             let name = Auth.auth().currentUser?.displayName
             let postDic = [
                 "name": name!,
-                "bookimage": item!.mediumImageUrl!.absoluteString,
+                "bookimage": item!.largeImageUrl!.absoluteString,
                 "booktitle": self.item!.title!,
-                "caption": self.textField.text!,
+                "caption": self.textView.text!,
                 "date": FieldValue.serverTimestamp(),
                 ] as [String : Any]
             postRef.setData(postDic)
@@ -43,17 +43,20 @@ class PostViewController: UIViewController {
     
     //キャンセルボタンをタップした時に呼ばれるメソッド
     @IBAction func handleCancelButton(_ sender: Any) {
-        //バーコード読み込み画面に戻る
-        self.dismiss(animated: true, completion: nil)
+        //先頭の画面に戻る
+        UIApplication.shared.windows.first{ $0.isKeyWindow }?.rootViewController?.dismiss(animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        SVProgressHUD.dismiss()
         //APIで取得した画像をImageViewに設定する if let でアンラップでも可
-        imageView.image = UIImage(url: item!.mediumImageUrl!)
+        imageView.image = UIImage(url: item!.largeImageUrl!)
         //本のタイトルをセットする
         textField.text = item!.title
+        //textViewの枠のカラー
+        textView.layer.borderColor = UIColor.black.cgColor
         
         // Do any additional setup after loading the view.
     }
@@ -68,6 +71,10 @@ class PostViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+            self.view.endEditing(true)
+        }
 
 }
 

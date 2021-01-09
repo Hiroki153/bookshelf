@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 import AudioToolbox
+import SVProgressHUD
 
 class CodeReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
@@ -124,8 +125,7 @@ class CodeReaderViewController: UIViewController, AVCaptureMetadataOutputObjects
             print("text \(text)")
             print(isbn)
             self.isbn = isbn
-            
-        }
+       }
         searchBookTitle()
     }
     
@@ -162,6 +162,8 @@ class CodeReaderViewController: UIViewController, AVCaptureMetadataOutputObjects
     func searchBookTitle(){
         
         let isbn = self.isbn
+        
+        if isbn != "" {
          //本のisbnコードをURLエンコードする
         guard let isbn_encode = isbn.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else{
             return
@@ -194,14 +196,13 @@ class CodeReaderViewController: UIViewController, AVCaptureMetadataOutputObjects
                 
                 print(json)
                 
-                let Items = json.Items
-                
-
                 //本の情報が取得できているか確認
-                if let items = Item {
+                if let items = json.Items {
                     if items.count > 0 {
                     //取得している本の数だけ処理
-                        let item = items[0]
+                        let item = items.first?.Item
+                        
+                        
 
                         let postViewController = self.storyboard?.instantiateViewController(withIdentifier: "Post") as! PostViewController
                         postViewController.item = item
@@ -213,10 +214,17 @@ class CodeReaderViewController: UIViewController, AVCaptureMetadataOutputObjects
                 print("エラーが出ました")
             }
         })
+        
         //ダウンロード開始
         task.resume()
+            SVProgressHUD.show(withStatus:"データを取得しています。")
+        }
         
-        
+        else {
+            SVProgressHUD.showError(withStatus: "読み込みに失敗しました。再度読み込んでください")
+            self.presentingViewController?.dismiss(animated: true, completion: nil)
+            SVProgressHUD.dismiss(withDelay: 2)
+        }
     }
     
     /*
@@ -248,7 +256,7 @@ struct ItemInfo: Codable {
     //本のタイトル
     let title: String?
     //画像URL
-    let mediumImageUrl: URL?
+    let largeImageUrl: URL?
     
     
 }
