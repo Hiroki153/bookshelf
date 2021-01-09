@@ -16,6 +16,7 @@ class CodeReaderViewController: UIViewController, AVCaptureMetadataOutputObjects
     var videoPreviewLayer:AVCaptureVideoPreviewLayer?
     var captureSession:AVCaptureSession?
     var text:String = ""
+    var isbn:String = ""
     //本の情報一式を「タプル」としてまとめ、「配列」に格納
     var book : [(title:String?, image:URL)] = []
     
@@ -121,11 +122,11 @@ class CodeReaderViewController: UIViewController, AVCaptureMetadataOutputObjects
             guard let isbn = convartISBN(value: value) else { continue }
             text += "ISBN:\t\(isbn)"
             print("text \(text)")
-
+            print(isbn)
+            self.isbn = isbn
+            
         }
-
-
-
+        searchBookTitle()
     }
     
         private func convartISBN(value: String) -> String? {
@@ -160,15 +161,16 @@ class CodeReaderViewController: UIViewController, AVCaptureMetadataOutputObjects
     //第一引数　isbnコード
     func searchBookTitle(){
         
-        let isbn = self.text
+        let isbn = self.isbn
          //本のisbnコードをURLエンコードする
         guard let isbn_encode = isbn.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else{
             return
         }
+        print(isbn_encode)
         
         //リクエストURLの組み立て
         guard let req_url = URL(string:
-            "https://app.rakuten.co.jp/services/api/BooksBook/Search/20170404?isbn=\(isbn_encode)&sort=+releaseDate") else {
+            "https://app.rakuten.co.jp/services/api/BooksBook/Search/20170404?applicationId=1088561974843727615&isbn=\(isbn_encode)&sort=sales") else {
                 return
         }
         
@@ -190,12 +192,13 @@ class CodeReaderViewController: UIViewController, AVCaptureMetadataOutputObjects
                 //受け取ったJSONデータをパース（解析）して格納
                 let json = try decoder.decode(ResultJson.self, from: data!)
                 
+                print(json)
+
                 //本の情報が取得できているか確認
                 if let items = json.item {
                     if items.count > 0 {
                     //取得している本の数だけ処理
                         let item = items[0]
-                        
 
                         let postViewController = self.storyboard?.instantiateViewController(withIdentifier: "Post") as! PostViewController
                         postViewController.item = item
