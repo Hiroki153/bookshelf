@@ -1,15 +1,15 @@
 //
-//  PostData.swift
+//  MyPostData.swift
 //  bookshelf
 //
-//  Created by 仲井宏紀 on 2020/12/20.
-//  Copyright © 2020 hiroki.nakai. All rights reserved.
+//  Created by 仲井宏紀 on 2021/01/10.
+//  Copyright © 2021 hiroki.nakai. All rights reserved.
 //
 
 import UIKit
 import Firebase
 
-class PostData: NSObject {
+class MyPostData: NSObject {
     var id: String
     var name: String?
     var booktitle: String?

@@ -27,6 +27,7 @@
 		4E69242225A17D5B002C5672 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E69242025A17D5B002C5672 /* CollectionViewCell.swift */; };
 		4E69242325A17D5B002C5672 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E69242125A17D5B002C5672 /* CollectionViewCell.xib */; };
 		4E69242725A1F014002C5672 /* MyPostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E69242625A1F014002C5672 /* MyPostDetailViewController.swift */; };
+		4EAEA5DB25AADD490077F7EA /* MyPostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAEA5DA25AADD400077F7EA /* MyPostData.swift */; };
 		99898614B27730B9CB224B9E /* Pods_bookshelf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44499ADA02020C19BD284A6D /* Pods_bookshelf.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,7 @@
 		4E69242025A17D5B002C5672 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		4E69242125A17D5B002C5672 /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		4E69242625A1F014002C5672 /* MyPostDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostDetailViewController.swift; sourceTree = "<group>"; };
+		4EAEA5DA25AADD400077F7EA /* MyPostData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostData.swift; sourceTree = "<group>"; };
 		9F041640836473BA128243BA /* Pods-bookshelf.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bookshelf.debug.xcconfig"; path = "Target Support Files/Pods-bookshelf/Pods-bookshelf.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -112,6 +114,7 @@
 				4E69242025A17D5B002C5672 /* CollectionViewCell.swift */,
 				4E69242125A17D5B002C5672 /* CollectionViewCell.xib */,
 				4E69242625A1F014002C5672 /* MyPostDetailViewController.swift */,
+				4EAEA5DA25AADD400077F7EA /* MyPostData.swift */,
 			);
 			path = bookshelf;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E3CEC2D257DFBAD001E901E /* HomeViewController.swift in Sources */,
+				4EAEA5DB25AADD490077F7EA /* MyPostData.swift in Sources */,
 				4E3CEC2B257DFB8B001E901E /* LoginViewController.swift in Sources */,
 				4E3CEC31257DFBE8001E901E /* PostViewController.swift in Sources */,
 				4E3CEC39257E06B3001E901E /* TabBarController.swift in Sources */,

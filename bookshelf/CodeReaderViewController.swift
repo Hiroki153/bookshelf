@@ -77,13 +77,13 @@ class CodeReaderViewController: UIViewController, AVCaptureMetadataOutputObjects
                 view.addSubview(borderView)
                 
                 //UIボタンを作成
-                myCancelButton = UIButton(frame: CGRect(x: 0.35,y: 0.7,width: 0.3,height: 0.2))
-                myCancelButton.backgroundColor = UIColor.gray
+                myCancelButton = UIButton(frame: CGRect(x: 0.3*self.view.bounds.width,y: 0.4*self.view.bounds.height, width: 0.3*self.view.bounds.width, height: 0.08*self.view.bounds.height))
+                myCancelButton.backgroundColor = UIColor.darkGray
                 myCancelButton.layer.masksToBounds = true
                 myCancelButton.setTitle("キャンセル", for: UIControl.State.normal)
-                myCancelButton.layer.cornerRadius = 10.0
+                myCancelButton.layer.cornerRadius = 20.0
                 myCancelButton.addTarget(self, action: #selector(self.onClickMyButton), for: .touchUpInside)
-                myCancelButton.layer.position = CGPoint(x:view.bounds.width/2 ,y:view.bounds.height-50)
+                myCancelButton.layer.position = CGPoint(x:view.bounds.width/2 ,y:0.8*view.bounds.height)
                 view.addSubview(myCancelButton)
                 
                 //UIテキストフィールドを作成
@@ -298,6 +298,8 @@ struct ItemInfo: Codable {
     let title: String?
     //画像URL
     let largeImageUrl: URL?
+    //著者
+    let author: String?
 }
 
 

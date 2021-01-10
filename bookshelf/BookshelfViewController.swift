@@ -13,7 +13,7 @@ class BookshelfViewController: UIViewController, UICollectionViewDataSource, UIC
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var postArray: [PostData] = []
+    var mypostArray: [PostData] = []
     var selectedImage : UIImage?
     var booktitle: String?
     var caption: String?
@@ -55,7 +55,7 @@ class BookshelfViewController: UIViewController, UICollectionViewDataSource, UIC
                         return
                     }
                     // 取得したdocumentをもとにPostDataを作成し、postArrayの配列にする。
-                    self.postArray = querySnapshot!.documents.map { document in
+                    self.mypostArray = querySnapshot!.documents.map { document in
                         print("DEBUG_PRINT: document取得 \(document.documentID)")
                         let postData = PostData(document: document)
                         return postData
@@ -70,7 +70,7 @@ class BookshelfViewController: UIViewController, UICollectionViewDataSource, UIC
                 // listener登録済みなら削除してpostArrayをクリアする
                 listener.remove()
                 listener = nil
-                postArray = []
+                mypostArray = []
                 collectionView.reloadData()
             }
         }
@@ -82,13 +82,13 @@ class BookshelfViewController: UIViewController, UICollectionViewDataSource, UIC
 
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return postArray.count
+        return mypostArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         // セルを取得してデータを設定する
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CollectionViewCell
-        cell.setPostData(postArray[indexPath.row])
+        cell.setPostData(mypostArray[indexPath.row])
         cell.backgroundColor = .white  //セルの色
         return cell
     }
@@ -102,7 +102,7 @@ class BookshelfViewController: UIViewController, UICollectionViewDataSource, UIC
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
         // 配列からタップされたインデックスのデータを取り出す
-        let selectedPostData = postArray[indexPath.row]
+        let selectedPostData = mypostArray[indexPath.row]
         selectedImage = selectedPostData.bookimage
         booktitle = selectedPostData.booktitle
         caption = selectedPostData.caption

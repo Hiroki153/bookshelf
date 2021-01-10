@@ -18,6 +18,7 @@ class PostViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var textField: UILabel!
     @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var authorLabel: UILabel!
     
     //投稿ボタンをタップした時に呼ばれるメソッド
     @IBAction func handlePostButton(_ sender: Any) {
@@ -31,6 +32,7 @@ class PostViewController: UIViewController {
                 "name": name!,
                 "bookimage": item!.largeImageUrl!.absoluteString,
                 "booktitle": item!.title!,
+                "author": item!.author,
                 "caption": self.textView.text!,
                 "date": FieldValue.serverTimestamp(),
                 ] as [String : Any]
@@ -49,7 +51,7 @@ class PostViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(item!.title!)
+        print(item!.author!)
 
         SVProgressHUD.dismiss()
         //APIで取得した画像をImageViewに設定する if let でアンラップでも可
@@ -57,6 +59,9 @@ class PostViewController: UIViewController {
         //本のタイトルをセットする
         textField.text = item!.title!
         textField.tintColor = UIColor.black
+        //著者名をセットする
+        authorLabel.text = item!.author!
+        authorLabel.tintColor = UIColor.black
         //textViewの枠のカラー
         textView.layer.borderColor = UIColor.black.cgColor
         textView.layer.borderWidth = 1.0

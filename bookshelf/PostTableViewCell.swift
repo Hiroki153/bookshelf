@@ -17,6 +17,7 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var captionLabel: UILabel!
+    @IBOutlet weak var authorLabel: UILabel!
     
 
     override func awakeFromNib() {
@@ -38,7 +39,9 @@ class PostTableViewCell: UITableViewCell {
             //本のタイトルの表示
             self.titleLabel.text = "\(postData.booktitle!)"
             // キャプションの表示
-            self.captionLabel.text = "\(postData.name!) : \(postData.caption!)"
+            self.captionLabel.text = "\(postData.name!)  \(postData.caption!)"
+            //著者の表示
+            self.authorLabel.text = "\(postData.author)"
 
             // 日時の表示
             self.dateLabel.text = ""
