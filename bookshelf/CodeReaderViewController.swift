@@ -18,6 +18,16 @@ class CodeReaderViewController: UIViewController, AVCaptureMetadataOutputObjects
     var captureSession:AVCaptureSession?
     var text:String = ""
     var isbn:String = ""
+    
+    private var myCancelButton: UIButton!
+    private var myTextLabel: UILabel!
+    
+    //カメラの読み取り範囲を指定(0~1.0の範囲で指定)
+    let x: CGFloat = 0.2
+    let y: CGFloat = 0.1
+    let width : CGFloat = 0.15
+    let height : CGFloat = 0.8
+    
     //本の情報一式を「タプル」としてまとめ、「配列」に格納
     var book : [(title:String?, image:URL)] = []
     
@@ -49,7 +59,10 @@ class CodeReaderViewController: UIViewController, AVCaptureMetadataOutputObjects
                 captureSession.addOutput(captureMetadataOutput)
 
                 captureMetadataOutput.setMetadataObjectsDelegate(self, queue: .main)
-                captureMetadataOutput.metadataObjectTypes = [.code128, .qr, .ean13,  .ean8, .code39] //AVMetadataObject.ObjectType
+                captureMetadataOutput.metadataObjectTypes = [.ean13, .ean8] //AVMetadataObject.ObjectType
+                //どの範囲を解析するか設定する
+                captureMetadataOutput.rectOfInterest = CGRect(x: x, y: y, width: width, height: height)
+                
 
                 captureSession.startRunning()
 
@@ -57,6 +70,29 @@ class CodeReaderViewController: UIViewController, AVCaptureMetadataOutputObjects
                 videoPreviewLayer?.videoGravity = .resizeAspectFill
                 videoPreviewLayer?.frame = view.layer.bounds
                 view.layer.addSublayer(videoPreviewLayer!)
+                //解析範囲を表すボーダービューを設定する
+                let borderView = UIView(frame: CGRect(x: (1-y-height)*self.view.bounds.width, y: x*self.view.bounds.height, width: height*self.view.bounds.width, height: width*self.view.bounds.height))
+                borderView.layer.borderWidth = 1
+                borderView.layer.borderColor = UIColor.black.cgColor
+                view.addSubview(borderView)
+                
+                //UIボタンを作成
+                myCancelButton = UIButton(frame: CGRect(x: 0.35,y: 0.7,width: 0.3,height: 0.2))
+                myCancelButton.backgroundColor = UIColor.gray
+                myCancelButton.layer.masksToBounds = true
+                myCancelButton.setTitle("キャンセル", for: UIControl.State.normal)
+                myCancelButton.layer.cornerRadius = 10.0
+                myCancelButton.addTarget(self, action: #selector(self.onClickMyButton), for: .touchUpInside)
+                myCancelButton.layer.position = CGPoint(x:view.bounds.width/2 ,y:view.bounds.height-50)
+                view.addSubview(myCancelButton)
+                
+                //UIテキストフィールドを作成
+                myTextLabel = UILabel(frame: CGRect(x: (1-y-height)*self.view.bounds.width, y: (x+0.1)*self.view.bounds.height, width: height*self.view.bounds.width, height: (width-0.05)*self.view.bounds.height))
+                myTextLabel.backgroundColor = UIColor.darkGray
+                myTextLabel.text = "97から始まるバーコードを読み込んでください"
+                myTextLabel.numberOfLines = 0
+                myTextLabel.textAlignment = .center
+                view.addSubview(myTextLabel)
 
             } catch {
                 print("Error Device Input")
@@ -71,6 +107,14 @@ class CodeReaderViewController: UIViewController, AVCaptureMetadataOutputObjects
         codeLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
         codeLabel.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
 
+    }
+    
+    @objc func onClickMyButton(sender: UIButton) {
+        //撮影停止
+        if(sender == myCancelButton) {
+            captureSession?.stopRunning()
+            self.presentingViewController?.dismiss(animated: true, completion: nil)
+        }
     }
     
     //キャンセルボタンをタップした時に呼ばれるメソッド
@@ -202,8 +246,6 @@ class CodeReaderViewController: UIViewController, AVCaptureMetadataOutputObjects
                     //取得している本の数だけ処理
                         let item = items.first?.Item
                         
-                        
-
                         let postViewController = self.storyboard?.instantiateViewController(withIdentifier: "Post") as! PostViewController
                         postViewController.item = item
                         self.present(postViewController, animated: true, completion: nil)
@@ -252,13 +294,10 @@ struct ItemDic : Codable{
 
 //JSONのitem内のデータ構造
 struct ItemInfo: Codable {
-
     //本のタイトル
     let title: String?
     //画像URL
     let largeImageUrl: URL?
-    
-    
 }
 
 

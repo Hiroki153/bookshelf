@@ -26,17 +26,11 @@ class CollectionViewCell: UICollectionViewCell {
         // Initialization code
     }
     
-    //PostDataのデータをフィルタリングする
-    func filterPostData(_ postData: PostData) {
-        self.newArray = postArray.filter{
-            $0.id.contains("myid")
-        }
-        if case postData.id = myid {
-            self.caption = postData.caption
-            self.booktitle = postData.booktitle
-            self.myImage = postData.bookimage
-        }
-        collectionImageView.image = self.myImage
+    
+    
+    func setPostData(_ postData: PostData) {
+        // 画像の表示
+        collectionImageView.image = postData.bookimage
     }
     
 }

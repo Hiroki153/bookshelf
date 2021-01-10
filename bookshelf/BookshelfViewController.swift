@@ -14,7 +14,6 @@ class BookshelfViewController: UIViewController, UICollectionViewDataSource, UIC
     @IBOutlet weak var collectionView: UICollectionView!
     
     var postArray: [PostData] = []
-    var newArray: [PostData] = []
     var selectedImage : UIImage?
     var booktitle: String?
     var caption: String?
@@ -41,20 +40,56 @@ class BookshelfViewController: UIViewController, UICollectionViewDataSource, UIC
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("DEBUG_PRINT: viewWillAppear")
+
+        if Auth.auth().currentUser != nil {
+            // ログイン済み
+            if listener == nil {
+                // listener未登録なら、登録してスナップショットを受信する
+                let postsRef = Firestore.firestore().collection(Const.PostPath).whereField("id", isEqualTo:"myid").order(by: "date", descending: true).limit(to: 30)
+                listener = postsRef.addSnapshotListener() { (querySnapshot, error) in
+                    if let error = error {
+                        print("DEBUG_PRINT: snapshotの取得が失敗しました。 \(error)")
+                        return
+                    }
+                    // 取得したdocumentをもとにPostDataを作成し、postArrayの配列にする。
+                    self.postArray = querySnapshot!.documents.map { document in
+                        print("DEBUG_PRINT: document取得 \(document.documentID)")
+                        let postData = PostData(document: document)
+                        return postData
+                    }
+                    // TableViewの表示を更新する
+                    self.collectionView.reloadData()
+                }
+            }
+        } else {
+            // ログイン未(またはログアウト済み)
+            if listener != nil {
+                // listener登録済みなら削除してpostArrayをクリアする
+                listener.remove()
+                listener = nil
+                postArray = []
+                collectionView.reloadData()
+            }
+        }
+    }
+    
 
     
 
 
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return newArray.count
+        return postArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         // セルを取得してデータを設定する
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CollectionViewCell
-        cell.filterPostData(newArray[indexPath.row])
-        cell.backgroundColor = .brown  //セルの色
+        cell.setPostData(postArray[indexPath.row])
+        cell.backgroundColor = .white  //セルの色
         return cell
     }
     
@@ -67,7 +102,7 @@ class BookshelfViewController: UIViewController, UICollectionViewDataSource, UIC
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
         // 配列からタップされたインデックスのデータを取り出す
-        let selectedPostData = newArray[indexPath.row]
+        let selectedPostData = postArray[indexPath.row]
         selectedImage = selectedPostData.bookimage
         booktitle = selectedPostData.booktitle
         caption = selectedPostData.caption

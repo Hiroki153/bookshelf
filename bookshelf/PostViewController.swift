@@ -30,7 +30,7 @@ class PostViewController: UIViewController {
             let postDic = [
                 "name": name!,
                 "bookimage": item!.largeImageUrl!.absoluteString,
-                "booktitle": self.item!.title!,
+                "booktitle": item!.title!,
                 "caption": self.textView.text!,
                 "date": FieldValue.serverTimestamp(),
                 ] as [String : Any]
@@ -49,14 +49,18 @@ class PostViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(item!.title!)
 
         SVProgressHUD.dismiss()
         //APIで取得した画像をImageViewに設定する if let でアンラップでも可
         imageView.image = UIImage(url: item!.largeImageUrl!)
         //本のタイトルをセットする
-        textField.text = item!.title
+        textField.text = item!.title!
+        textField.tintColor = UIColor.black
         //textViewの枠のカラー
         textView.layer.borderColor = UIColor.black.cgColor
+        textView.layer.borderWidth = 1.0
+        textView.backgroundColor = UIColor.white
         
         // Do any additional setup after loading the view.
     }
