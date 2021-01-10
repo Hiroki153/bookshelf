@@ -13,7 +13,7 @@ class BookshelfViewController: UIViewController, UICollectionViewDataSource, UIC
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var mypostArray: [PostData] = []
+    var mypostArray: [MyPostData] = []
     var selectedImage : UIImage?
     var booktitle: String?
     var caption: String?
@@ -54,12 +54,13 @@ class BookshelfViewController: UIViewController, UICollectionViewDataSource, UIC
                         print("DEBUG_PRINT: snapshotの取得が失敗しました。 \(error)")
                         return
                     }
-                    // 取得したdocumentをもとにPostDataを作成し、postArrayの配列にする。
+                    // 取得したdocumentをもとにPostDataを作成し、mypostArrayの配列にする。
                     self.mypostArray = querySnapshot!.documents.map { document in
                         print("DEBUG_PRINT: document取得 \(document.documentID)")
-                        let postData = PostData(document: document)
+                        let postData = MyPostData(document: document)
                         return postData
                     }
+                    
                     // TableViewの表示を更新する
                     self.collectionView.reloadData()
                 }
@@ -77,10 +78,6 @@ class BookshelfViewController: UIViewController, UICollectionViewDataSource, UIC
     }
     
 
-    
-
-
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return mypostArray.count
     }
@@ -89,7 +86,7 @@ class BookshelfViewController: UIViewController, UICollectionViewDataSource, UIC
         // セルを取得してデータを設定する
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CollectionViewCell
         cell.setPostData(mypostArray[indexPath.row])
-        cell.backgroundColor = .white  //セルの色
+        cell.backgroundColor = UIColor.white  //セルの色
         return cell
     }
     

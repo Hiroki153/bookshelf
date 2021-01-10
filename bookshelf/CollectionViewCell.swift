@@ -14,8 +14,7 @@ class CollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var collectionImageView: UIImageView!
     
-    var postArray: [PostData] = []
-    var newArray: [PostData] = []
+    var postArray: [MyPostData] = []
     var booktitle: String?
     var caption: String?
     var myImage: UIImage!
@@ -28,7 +27,7 @@ class CollectionViewCell: UICollectionViewCell {
     
     
     
-    func setPostData(_ postData: PostData) {
+    func setPostData(_ postData: MyPostData) {
         // 画像の表示
         collectionImageView.image = postData.bookimage
     }

@@ -31,7 +31,9 @@ class PostData: NSObject {
         
         self.booktitle = postDic["booktitle"] as? String
         
-        self.author = postDic["author"] as? String
+        if let author = postDic["author"] as? String {
+                self.author = author
+        }
         
         if let urlString = postDic["bookimage"] as? String, let url = URL(string: urlString){
             self.bookimage = UIImage(url: url)
