@@ -22,18 +22,21 @@ class PostViewController: UIViewController {
     
     //投稿ボタンをタップした時に呼ばれるメソッド
     @IBAction func handlePostButton(_ sender: Any) {
+        
+            // HUDで投稿処理中の表示を開始
+            SVProgressHUD.show(withStatus:"投稿中")
             // 画像と投稿データの保存場所を定義する
             let postRef = Firestore.firestore().collection(Const.PostPath).document()
-            // HUDで投稿処理中の表示を開始
-            SVProgressHUD.show()
+            
             // FireStoreに投稿データを保存する
             let name = Auth.auth().currentUser?.displayName
             let postDic = [
                 "name": name!,
                 "bookimage": item!.largeImageUrl!.absoluteString,
                 "booktitle": item!.title!,
-                "author": item!.author,
+                "author": item!.author!,
                 "caption": self.textView.text!,
+                "userid": Auth.auth().currentUser!.uid,
                 "date": FieldValue.serverTimestamp(),
                 ] as [String : Any]
             postRef.setData(postDic)
@@ -51,7 +54,6 @@ class PostViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(item!.author!)
 
         SVProgressHUD.dismiss()
         //APIで取得した画像をImageViewに設定する if let でアンラップでも可

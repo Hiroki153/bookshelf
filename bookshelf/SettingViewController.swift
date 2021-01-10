@@ -33,11 +33,11 @@ class SettingViewController: UIViewController {
             changeRequest.displayName = displayName
             changeRequest.commitChanges { error in
                 if let error = error {
-                    SVProgressHUD.showError(withStatus: "表示名の変更に失敗しました。")
+                    SVProgressHUD.showError(withStatus: "表示名の変更に失敗しました")
                     print("DEBUG_PRINT: " + error.localizedDescription)
                     return
                 }
-                print("DEBUG_PRINT: [displayName = \(user.displayName!)]の設定に成功しました。")
+                print("DEBUG_PRINT: [displayName = \(user.displayName!)]の設定に成功しました")
 
                 // HUDで完了を知らせる
                 SVProgressHUD.showSuccess(withStatus: "表示名を変更しました")
@@ -72,6 +72,7 @@ class SettingViewController: UIViewController {
         // Do any additional setup after loading the view.
         }
         nameTextField.layer.borderColor = UIColor.black.cgColor
+        nameTextField.layer.borderWidth = 1.0
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

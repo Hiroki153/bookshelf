@@ -37,11 +37,19 @@ class PostTableViewCell: UITableViewCell {
             postImageView.image = postData.bookimage
 
             //本のタイトルの表示
-            self.titleLabel.text = "\(postData.booktitle!)"
+            if postData.booktitle != nil {
+                self.titleLabel.text = "\(postData.booktitle!)"
+            } else {
+                self.titleLabel.text = ""
+            }
             // キャプションの表示
             self.captionLabel.text = "\(postData.name!)  \(postData.caption!)"
             //著者の表示
-            self.authorLabel.text = "\(postData.author)"
+            if postData.author != nil {
+                     self.authorLabel.text = "\(postData.author!)"
+            } else {
+                self.authorLabel.text = ""
+            }
 
             // 日時の表示
             self.dateLabel.text = ""
