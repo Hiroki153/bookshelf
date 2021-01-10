@@ -93,6 +93,17 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        mailAddressTextField.layer.borderColor = UIColor.black.cgColor
+        mailAddressTextField.layer.borderWidth = 1.0
+        mailAddressTextField.backgroundColor = UIColor.white
+        
+        passwordTextField.layer.borderColor = UIColor.black.cgColor
+        passwordTextField.layer.borderWidth = 1.0
+        passwordTextField.backgroundColor = UIColor.white
+        
+        nameTextField.layer.borderColor = UIColor.black.cgColor
+        nameTextField.layer.borderWidth = 1.0
+        nameTextField.backgroundColor = UIColor.white
 
         // Do any additional setup after loading the view.
     }

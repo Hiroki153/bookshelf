@@ -48,7 +48,7 @@ class BookshelfViewController: UIViewController, UICollectionViewDataSource, UIC
             // ログイン済み
             if listener == nil {
                 // listener未登録なら、登録してスナップショットを受信する
-                let postsRef = Firestore.firestore().collection(Const.PostPath).whereField("id", isEqualTo:"myid").order(by: "date", descending: true).limit(to: 30)
+                let postsRef = Firestore.firestore().collection(Const.PostPath).whereField("id", isEqualTo:"myid").order(by: "date", descending: true)
                 listener = postsRef.addSnapshotListener() { (querySnapshot, error) in
                     if let error = error {
                         print("DEBUG_PRINT: snapshotの取得が失敗しました。 \(error)")
